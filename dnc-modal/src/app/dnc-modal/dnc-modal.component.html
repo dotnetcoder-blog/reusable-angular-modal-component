@@ -1,0 +1,30 @@
+<div *ngIf="visible"
+     class="dnc-modal-backdrop"
+     @fade
+     (click)="onBackdropClick($event)">
+  <div class="dnc-modal-dialog"
+       [ngClass]="getModalSizeClass()"
+       role="dialog"
+       aria-modal="true">
+    <div class="dnc-modal-content">
+      <!-- Header -->
+      <div class="dnc-modal-header">
+        <ng-content select="[modal-header]"></ng-content>
+        <button type="button"
+                class="btn-close"
+                aria-label="Close"
+                (click)="hide()"></button>
+      </div>
+
+      <!-- Body -->
+      <div class="dnc-modal-body">
+        <ng-content select="[modal-body]"></ng-content>
+      </div>
+
+      <!-- Footer -->
+      <div class="dnc-modal-footer">
+        <ng-content select="[modal-footer]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

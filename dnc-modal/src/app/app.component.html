@@ -1,0 +1,170 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary shadow-sm w-100 mb-5">
+  <a class="navbar-brand text-white fw-bold fs-4 ps-3">{{title}}</a>
+</nav>
+
+<div class="text-end mb-3">
+  <button class="btn btn-md btn-primary mx-3" (click)="showAddModal()">Add New Course</button>
+</div>
+
+<div class="container-fluid">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <table class="table table-hover table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Duration</th>
+            <th>Instructor</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ course.title }}</td>
+            <td>{{ course.description }}</td>
+            <td>{{ course.duration }}</td>
+            <td>{{ course.instructor }}</td>
+            <td>{{ course.category }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm me-2" (click)="showUpdateModal()">Update</button>
+              <button class="btn btn-danger btn-sm" (click)="showConfirmModal()">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<button class="btn btn-primary btn-sm my-4 mx-2" (click)="smallModal.show()">small modal</button>
+
+<!-- Modals -->
+<dnc-modal #updateCourseModal
+           [size]="'large'"
+           [clickBackdropToClose]="true"
+           (closed)="onModalClose()">
+  <div modal-header>
+    <h5 class="modal-title">Update Course</h5>
+  </div>
+  <div modal-body>
+    <div class="form-section">
+      <form>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="id" class="form-label">Course ID</label>
+            <input type="number" class="form-control" id="id" placeholder="Unique ID">
+          </div>
+          <div class="col-md-6">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Course Title">
+          </div>
+          <div class="col-md-6">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" placeholder="Course Description">
+          </div>
+          <div class="col-md-6">
+            <label for="duration" class="form-label">Duration</label>
+            <input type="text" class="form-control" id="duration" placeholder="e.g., 4 hours">
+          </div>
+          <div class="col-md-6">
+            <label for="instructor" class="form-label">Instructor</label>
+            <input type="text" class="form-control" id="instructor" placeholder="Instructor Name">
+          </div>
+          <div class="col-md-6">
+            <label for="category" class="form-label">Category</label>
+            <input type="text" class="form-control" id="category" placeholder="Course Category">
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div modal-footer>
+    <button class="btn btn-primary mx-2" (click)="hideUpdateModal()">Save Changes</button>
+    <button class="btn btn-secondary mx-2" (click)="hideUpdateModal()">Cancel</button>
+  </div>
+</dnc-modal>
+
+<dnc-modal #AddCourseModal
+           [size]="'large'"
+           [clickBackdropToClose]="true"
+           (closed)="onModalClose()">
+  <div modal-header>
+    <h5 class="modal-title">Add New Course</h5>
+  </div>
+  <div modal-body>
+    <div class="form-section">
+      <form>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="id" class="form-label">Course ID</label>
+            <input type="number" class="form-control" id="id" placeholder="Unique ID">
+          </div>
+          <div class="col-md-6">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Course Title">
+          </div>
+          <div class="col-md-6">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" placeholder="Course Description">
+          </div>
+          <div class="col-md-6">
+            <label for="duration" class="form-label">Duration</label>
+            <input type="text" class="form-control" id="duration" placeholder="e.g., 4 hours">
+          </div>
+          <div class="col-md-6">
+            <label for="instructor" class="form-label">Instructor</label>
+            <input type="text" class="form-control" id="instructor" placeholder="Instructor Name">
+          </div>
+          <div class="col-md-6">
+            <label for="category" class="form-label">Category</label>
+            <input type="text" class="form-control" id="category" placeholder="Course Category">
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div modal-footer>
+    <button class="btn btn-primary mx-2" (click)="hideAddModal()">Create course</button>
+    <button class="btn btn-secondary mx-2" (click)="hideAddModal()">Cancel</button>
+  </div>
+</dnc-modal>
+
+
+
+<dnc-modal #confirmModal
+           [size]="'normal'"
+           [clickBackdropToClose]="true"
+           (closed)="onModalClose()">
+  <div modal-header>
+    <h5 class="modal-title" id="deleteConfirmLabel">Confirm Deletion</h5>
+  </div>
+  <div modal-body>
+    Are you sure you want to delete the course "<strong>Introduction to TypeScript</strong>"? This action cannot be undone.
+  </div>
+  <div modal-footer>
+    <button type="button" class="btn btn-danger mx-2" (click)="hideConfirmModal()">Yes</button>
+    <button type="button" class="btn btn-secondary" (click)="hideConfirmModal()">No</button>
+  </div>
+</dnc-modal>
+
+<dnc-modal #smallModal
+           [size]="'small'"
+           [clickBackdropToClose]="true"
+           (closed)="onModalClose()">
+  <div modal-header>
+    <h5 class="modal-title" id="deleteConfirmLabel">Header</h5>
+  </div>
+  <div modal-body>
+    Small Modal Body
+  </div>
+  <div modal-footer>
+    <button type="button" class="btn btn-danger mx-2" (click)="smallModal.hide()">Ok</button>
+    <button type="button" class="btn btn-secondary" (click)="smallModal.hide()">Hide</button>
+  </div>
+</dnc-modal>

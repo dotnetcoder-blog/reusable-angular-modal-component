@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "TypeScript Basics",
+    "description": "Introduction to TypeScript.",
+    "duration": "2 hours",
+    "instructor": "John Doe",
+    "category": "Programming"
+  },
+  {
+    "id": 2,
+    "title": "Advanced TypeScript",
+    "description": "Deep dive into advanced TypeScript features.",
+    "duration": "4 hours",
+    "instructor": "Jane Smith",
+    "category": "Programming"
+  },
+  {
+    "id": 3,
+    "title": "Angular Essentials",
+    "description": "Learn Angular step-by-step.",
+    "duration": "6 hours",
+    "instructor": "Alex Brown",
+    "category": "Frontend Development"
+  },
+  {
+    "id": 4,
+    "title": "React for Beginners",
+    "description": "Build React applications.",
+    "duration": "5 hours",
+    "instructor": "Emily White",
+    "category": "Frontend Development"
+  },
+  {
+    "id": 5,
+    "title": "Mastering Node.js",
+    "description": "Backend development with Node.js.",
+    "duration": "8 hours",
+    "instructor": "Chris Green",
+    "category": "Backend Development"
+  },
+  {
+    "id": 6,
+    "title": "Building REST APIs",
+    "description": "Learn to create RESTful APIs.",
+    "duration": "3 hours",
+    "instructor": "Sarah Blue",
+    "category": "Backend Development"
+  },
+  {
+    "id": 7,
+    "title": "Fullstack Development",
+    "description": "Become a full-stack developer.",
+    "duration": "10 hours",
+    "instructor": "Michael Red",
+    "category": "Fullstack Development"
+  }
+]
